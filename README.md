@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# faq-accordion-card
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Live website -()
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [The challenge](#the-challenge)
+- [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
 
-### `npm start`
+### The challenge
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users should be able to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- View the optimal layout for the component depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Hide/Show the answer to a question when the question is clicked
 
-### `npm test`
+## My process
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+### End Result
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![result](https://user-images.githubusercontent.com/85038929/126051502-46433f96-a7ba-4632-b3d8-9dfba57ea9b5.JPG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Active image
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![active](https://user-images.githubusercontent.com/85038929/126051510-7bc6b36f-7159-439a-9332-e87307fdbf97.JPG)
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Semantic HTML5 markup
+- CSS custom properties
+- CSS Grid
+- React.JS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In this project I learned how to use my background settings in css to move images in the correct places. I also learned how to use the transition tool so that I could create the accordion affect with the help of javascript. I thought this task would be alot more difficult but with the help of a few resources I was able to complete the task
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Here is some code that I wrote in order to complete this task
 
-## Learn More
+```HTML
+<button class="accordion">How many team members can I invite?</button>
+          <div class="panel">
+            <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+          </div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```Javascript
+// Toggle between hiding and showing the active panel
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
 
-### Code Splitting
+        //adding transition to panel
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```CSS
+.wrapper {
+		max-width: 850px;
+		display: grid;
+		padding: 2rem 2rem 6rem 1.5rem;
+		grid-template-areas: "image-Woman content";
+		grid-template-columns: 1fr 1fr;
+		background-image: url(../images/illustration-woman-online-desktop.svg),
+			url(../images/bg-pattern-desktop.svg);
+		background-position: top 40px left -67px, left -436px top -230px;
+		background-size: 400px auto, auto 750px;
+	}
+```
 
-### Analyzing the Bundle Size
+### Questions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- How can I fix my animation so that I slides up aswell? I only got it to slide down.
+- Is there another way to move the bottom border of the cards? I used javascript to make the title's bottom border to disappear and added a border in the panel that would then appear along with the panel
 
-### Making a Progressive Web App
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [CSS background-size Property](https://www.w3schools.com/cssref/css3_pr_background-size.asp) - This helped me when positioning my background images properly
 
-### Advanced Configuration
+- [Element.classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) - this documentation about the .classList property helped my complete the task in javascript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [How TO - Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp) - this documentation about the accordion collapsibles helped my know where to start and create the basic code needed for the project.
 
-### Deployment
+- [Debugging JavaScript in Visual Studio Code and Google Chrome](https://www.youtube.com/watch?v=AX7uybwukkk&ab_channel=JamesQQuick) - this video taught me how to debug my javascript using the debugger tool in developer tools
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Author
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Carlos Perez](https://www.site.com)
+- Frontend Mentor - [@Carlos-A-P](https://www.frontendmentor.io/profile/yourusername)
+- Twitter - [@WDCarlosP](https://www.twitter.com/WDCarlosP)
