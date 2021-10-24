@@ -1,14 +1,14 @@
-import './App.css';
-import Footer from './origional/Footer';
-import Main from './origional/Main';
+import "./App.css";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
 
 function App() {
-  return (
-    <>
-    <Main />
-    <Footer />
-    </>
-  );
+	return (
+		<>
+			<Main />
+			<Footer />
+		</>
+	);
 }
 
 export default App;

@@ -11,16 +11,8 @@
 	--lgBlue: hsl(240, 5%, 91%);
 }
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: "Kumbh Sans", sans-serif;
-	font-size: 12px;
-}
-
 body {
-	height: 130vh;
+	min-height: 100vh;
 	background: linear-gradient(var(--sViolet), var(--sBlue)) no-repeat;
 }
 
@@ -32,12 +24,12 @@ main {
 	background-color: white;
 	max-width: 500px;
 	margin: auto;
-	margin-bottom: 300px;
+	margin-bottom: 140px;
 	border-radius: 20px;
 	padding: 2rem 1.5rem 4rem;
 	background-image: url(../images/bg-pattern-mobile.svg);
 	background-repeat: no-repeat;
-	background-position: left 50% top -5px;
+	background-position: left 50% top 4px;
 	box-shadow: 0 20px 20px rgb(111, 79, 148);
 }
 
@@ -46,8 +38,8 @@ main {
 	height: 200px;
 	background-image: url(../images/illustration-woman-online-mobile.svg);
 	background-repeat: no-repeat;
-	margin-top: -11rem;
-	background-position: left 40% top 0;
+	margin-top: -11.5rem;
+	background-position: left 50% top 0;
 }
 
 /* styling the buttons that are used to open and close the accordion panel */
@@ -62,7 +54,6 @@ main {
 	text-align: left;
 	border: none;
 	outline: none;
-	transition: 0.4s;
 	border-bottom: 1px solid var(--lgBlue);
 }
 
@@ -73,6 +64,7 @@ main {
 .accordion:after {
 	content: url(../images/icon-arrow-down.svg);
 	margin-left: auto;
+	transition: all 0.5s ease-out;
 }
 
 .active:after {
@@ -91,12 +83,29 @@ button.accordion.active {
 	background-color: white;
 	line-height: 14.4px;
 	color: var(--dgBlue);
-	display: none;
+	/* display: none; */
 	overflow: hidden;
-	max-height: 0px;
-	transition: max-height 0.3s;
-	transition-property: all;
+	/* max-height: 0px; */
+	animation: slide-in 1s ease-out;
+	-webkit-animation: slide-in 1s ease-out;
 	border-bottom: 1px solid var(--lgBlue);
+}
+
+@-webkit-keyframes slide-in {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
 }
 
 .content {
@@ -107,21 +116,6 @@ button.accordion.active {
 	font-size: 32px;
 	text-align: center;
 	margin-bottom: 1rem;
-}
-
-footer {
-	font-size: 11px;
-	text-align: center;
-	color: rgb(180, 200, 243);
-}
-footer a {
-	color: hsl(305, 85%, 80%);
-}
-
-@media (max-width: 375px) {
-	.image {
-		background-position: left -5px top 0;
-	}
 }
 
 @media (min-width: 900px) {
